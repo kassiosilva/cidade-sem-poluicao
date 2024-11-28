@@ -1,5 +1,6 @@
 {
   "name": "fortaleza-limpa-api",
+  "type": "module",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -7,7 +8,16 @@
     "dev": "node --env-file .env --watch src/server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Kássio Sá",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "@rocketseat/eslint-config": "2.2.2",
+    "eslint": "8.57.1"
+  },
+  "dependencies": {
+    "cors": "2.8.5",
+    "express": "4.21.1",
+    "mongoose": "8.8.3"
+  }
 }
