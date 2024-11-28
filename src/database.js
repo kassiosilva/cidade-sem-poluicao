@@ -1,9 +1,11 @@
-import express from 'express'
-import cors from 'cors'
+import mongoose from 'mongoose'
 
-export const routes = express.Router()
+export async function connectDB() {
+  try {
+    await mongoose.connect(process.env.MONGODB_URI)
 
-routes.use(cors())
-
-routes.post('/register-donor')
-routes.post('/contact-us')
+    console.log('Conectado ao MongoDB!')
+  } catch (error) {
+    console.error(error)
+  }
+}
