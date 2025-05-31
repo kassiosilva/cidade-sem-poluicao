@@ -2,7 +2,11 @@ import mongoose from 'mongoose'
 
 const { Schema } = mongoose
 
-const donorSchema = new Schema({
+const contactSchema = new Schema({
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+  },
   name: {
     type: String,
     required: true,
@@ -10,10 +14,9 @@ const donorSchema = new Schema({
   email: {
     type: String,
     required: true,
-    unique: true,
     lowercase: true,
   },
-  phone: {
+  message: {
     type: String,
     required: true,
   },
@@ -23,4 +26,4 @@ const donorSchema = new Schema({
   },
 })
 
-export const Donor = mongoose.model('donor', donorSchema)
+export const Contact = mongoose.model('contact', contactSchema)

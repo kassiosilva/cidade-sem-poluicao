@@ -1,5 +1,5 @@
 {
-  "name": "fortaleza-limpa-api",
+  "name": "authentication-service",
   "type": "module",
   "version": "1.0.0",
   "main": "index.js",

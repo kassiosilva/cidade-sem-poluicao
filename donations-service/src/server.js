@@ -9,6 +9,8 @@ connectDB()
 server.use(express.json())
 server.use(routes)
 
-server.listen(process.env.PORT || 3333, () => {
-  console.log(`Servidor rodando na porta ${process.env.PORT} 🚀️`)
+server.listen(process.env.PORT || 3334, () => {
+  console.log(
+    `Servidor donation-service rodando na porta ${process.env.PORT} 🚀️`,
+  )
 })
