@@ -6,6 +6,6 @@ export async function createContact(req, res) {
 
     return res.status(201).json(task)
   } catch (error) {
-    return res.status(500).json({ message: 'Erro ao criar contato' })
+    return res.status(500).json({ message: 'Erro ao criar contato', error })
   }
 }
