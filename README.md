@@ -124,3 +124,21 @@ Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 * *cors:* Middleware para habilitar o Cross-Origin Resource Sharing com várias opções.
 * *jsonwebtoken*: Para autenticação via JWT.
 * *Plataforma de Hospedagem:* Vercel
+
+
+## Como executar?
+1. Você precisa instalar *Node.js* na versão >=22.14.0. Cada microsserviço utiliza o [Mise](https://mise.jdx.dev/) para gerenciar a versão do node, se você utiliza o Mise basta executar o comando na raiz do projeto: mise install. Se não utilizar o mise basta utilizar o version manager de sua preferência(nvm, asdf e etc).
+
+2. Clone o projeto, entre no respectivo microsserviço que você quer rodar e execute o comando abaixo para instalar as dependências:
+    bash
+    npm install
+    
+3. Você precisa criar o arquivo .env na raiz. Copie todo o conteúdo do arquivo .env.example e cole no seu .env.
+    
+    MONGODB_URI="coloque aqui sua url de conexão com o MongoDB"
+    PORT=3333
+    SECRET_KEY="minhachavesecreta"
+    
+4. Agora basta rodar o comando para executar o servidor:
+    ```bash
+    npm run dev
