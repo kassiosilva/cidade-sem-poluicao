@@ -19,3 +19,108 @@ O público-alvo do projeto é constituído por alguns moradores e trabalhadores 
 > Este repositório é um dos componentes da nossa aplicação. Para conhecer os outros repositórios do projeto, acesse os seguintes links:
 > - [cidade-sem-poluicao-api-gateway](https://github.com/kassiosilva/cidade-sem-poluicao-api-gateway)
 > - [cidade-sem-poluicao-front](https://github.com/kassiosilva/cidade-sem-poluicao-front)
+## Visão geral da arquitetura
+
+<img src="./visao-geral-arquitetura.png" alt="imagem visão geral da arquitetura" />
+
+<br/>
+
+>  ⚠ Atenção
+>
+> Sabemos que não é uma boa prática manter um banco de dados compartilhado para todos os microsserviços, mas devido ao custo dos serviços de hospedagem fora dos planos free achamos melhor manter só um banco mongodb.
+
+### Como funciona?
+O cliente(frontend) faz a request para a api gateway e ela fica responsável por encaminhar para o seu respectivo microsserviço que devolve a response para a api gateway e ela fica responsável de passar para o frontend.
+
+Toda a comunicação é feita via http request. Estamos utilizando o banco de dados *MongoDB* para persistir os dados dos usuários.
+
+*Repositórios dos outros components no Github*:
+* [cidade-sem-poluicao-api-gateway](https://github.com/kassiosilva/cidade-sem-poluicao-api-gateway)
+* [cidade-sem-poluicao-front](https://github.com/kassiosilva/cidade-sem-poluicao-front)
+
+#### Segurança
+Utilizamos a estratégia do *JWT(JSON Web Token)* para a autenticação dos usuários nos microsserviços.
+
+A nossa api gateway está o usando o [Helmet](https://helmetjs.github.io/) que é um middleware de segurança para aplicações Node.js (especialmente com Express) que ajuda a proteger seus aplicativos contra algumas vulnerabilidades comuns da web, configurando cabeçalhos HTTP de forma adequada.
+
+#### Plataforma de Hospedagem
+Estamos utilizando a *Vercel* para hospedar os nossos microsserviços, api gateway e o frontend. Os serviços podem ser acessados através dessas url's públicas:
+- donation-service: https://cd-donation-service.vercel.app
+- contact-us-service: https://cd-contact-us-service.vercel.app
+- authentication-service: https://cd-authentication-service.vercel.app
+- frontend: https://cidade-sem-poluicao-front.vercel.app
+- api-gateway: https://cidade-sem-poluicao-api-gateway.vercel.app
+
+
+#### Estrutura do projeto
+
+.
+├── authentication-service
+│   ├── .editorconfig
+│   ├── .env
+│   ├── .env.example
+│   ├── .eslintignore
+│   ├── .eslintrc.json
+│   ├── .gitignore
+│   ├── mise.toml
+│   ├── .npmrc
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── src
+│   │   ├── controllers
+│   │   ├── database.js
+│   │   ├── middlewares
+│   │   ├── models
+│   │   ├── routes.js
+│   │   └── server.js
+│   └── vercel.json
+├── contact-us-sevice
+│   ├── .editorconfig
+│   ├── .env
+│   ├── .env.example
+│   ├── .eslintignore
+│   ├── .eslintrc.json
+│   ├── .gitignore
+│   ├── mise.toml
+│   ├── .npmrc
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── src
+│   │   ├── controllers
+│   │   ├── database.js
+│   │   ├── middlewares
+│   │   ├── models
+│   │   ├── routes.js
+│   │   └── server.js
+│   └── vercel.json
+├── donations-service
+│   ├── .editorconfig
+│   ├── .env
+│   ├── .env.example
+│   ├── .eslintignore
+│   ├── .eslintrc.json
+│   ├── .gitignore
+│   ├── mise.toml
+│   ├── .npmrc
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── src
+│   │   ├── controllers
+│   │   ├── database.js
+│   │   ├── middlewares
+│   │   ├── models
+│   │   ├── routes.js
+│   │   └── server.js
+│   └── vercel.json
+└── README.md
+
+
+## Tecnologias
+
+Este projeto foi desenvolvido utilizando as seguintes tecnologias:
+
+* *Node.js:* Ambiente de execução JavaScript do lado do servidor.
+* *Express.js:* Framework minimalista e flexível para Node.js, usado para construir a API do gateway.
+* *cors:* Middleware para habilitar o Cross-Origin Resource Sharing com várias opções.
+* *jsonwebtoken*: Para autenticação via JWT.
+* *Plataforma de Hospedagem:* Vercel
